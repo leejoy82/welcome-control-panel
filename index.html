@@ -55,7 +55,6 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            <!-- Push Notifications -->
             <div class="bg-gray-800 p-6 rounded-lg lg:col-span-2">
                 <h2 class="text-2xl text-sandstone-gold mb-4">Send Push Notification</h2>
                    <form id="push-notification-form" class="space-y-4">
@@ -73,7 +72,6 @@
                    <p class="text-xs text-gray-500 mt-2">Note: This requires Firebase Cloud Messaging setup in the main app.</p>
             </div>
 
-            <!-- News Management -->
             <div class="bg-gray-800 p-6 rounded-lg">
                 <h2 class="text-2xl text-sandstone-gold mb-4">Latest News</h2>
                 <form id="news-form" class="space-y-4">
@@ -87,10 +85,9 @@
                     </div>
                     <button type="submit" class="w-full p-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors">Add News Article</button>
                 </form>
-                  <div id="news-list" class="mt-6 space-y-2"></div>
+                  <div id="news-list" class="mt-6 space-y-2 max-h-60 overflow-y-auto"></div>
             </div>
 
-            <!-- Offers Management -->
             <div class="bg-gray-800 p-6 rounded-lg">
                 <h2 class="text-2xl text-sandstone-gold mb-4">Discounts & Offers</h2>
                 <form id="offers-form" class="space-y-4">
@@ -108,38 +105,51 @@
                         </div>
                     <button type="submit" class="w-full p-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors">Add Offer</button>
                 </form>
-                  <div id="offers-list" class="mt-6 space-y-2"></div>
+                  <div id="offers-list" class="mt-6 space-y-2 max-h-60 overflow-y-auto"></div>
             </div>
 
-            <!-- Stock Management -->
-            <div class="bg-gray-800 p-6 rounded-lg lg:col-span-2">
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl text-sandstone-gold mb-4">Events Management</h2>
+                <form id="events-form" class="space-y-4">
+                    <div>
+                        <label for="event-title" class="block font-semibold mb-1">Event Name</label>
+                        <input type="text" id="event-title" required class="w-full rounded p-2 form-input">
+                    </div>
+                    <div>
+                        <label for="event-date" class="block font-semibold mb-1">Event Date</label>
+                        <input type="date" id="event-date" required class="w-full rounded p-2 form-input">
+                    </div>
+                    <div>
+                        <label for="event-description" class="block font-semibold mb-1">Description</label>
+                        <textarea id="event-description" rows="3" required class="w-full rounded p-2 form-input"></textarea>
+                    </div>
+                    <div>
+                        <label for="event-tickets-url" class="block font-semibold mb-1">Ticket URL (e.g., Digitickets link)</label>
+                        <input type="url" id="event-tickets-url" placeholder="https://..." class="w-full rounded p-2 form-input">
+                    </div>
+                    <button type="submit" class="w-full p-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-lg transition-colors">Add Event</button>
+                </form>
+                  <div id="events-list" class="mt-6 space-y-2 max-h-60 overflow-y-auto"></div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg">
                 <h2 class="text-2xl text-sandstone-gold mb-4">My Shop Inventory</h2>
-                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-xl text-sandstone-gold/80 mb-4">Add New Product</h3>
-                            <form id="add-stock-form" class="space-y-4">
-                                  <div>
-                                      <label for="product-name" class="block font-semibold mb-1">Product Name</label>
-                                      <input type="text" id="product-name" required class="w-full rounded p-2 form-input">
-                                  </div>
-                                   <div>
-                                      <label for="product-desc" class="block font-semibold mb-1">Description</label>
-                                      <textarea id="product-desc" rows="3" required class="w-full rounded p-2 form-input"></textarea>
-                                  </div>
-                                <div>
-                                      <label for="product-price" class="block font-semibold mb-1">Price (£)</label>
-                                      <input type="number" step="0.01" id="product-price" required class="w-full rounded p-2 form-input">
-                                  </div>
-                                <button type="submit" class="w-full p-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors">Add Product</button>
-                            </form>
-                        </div>
-                        <div>
-                           <h3 class="text-xl text-sandstone-gold/80 mb-4">Current Listings</h3>
-                             <div id="stock-list-container" class="space-y-4 max-h-96 overflow-y-auto">
-                                   <p class="text-gray-400">Your products will appear here.</p>
-                             </div>
-                        </div>
-                   </div>
+                <form id="add-stock-form" class="space-y-4">
+                      <div>
+                          <label for="product-name" class="block font-semibold mb-1">Product Name</label>
+                          <input type="text" id="product-name" required class="w-full rounded p-2 form-input">
+                      </div>
+                       <div>
+                          <label for="product-desc" class="block font-semibold mb-1">Description</label>
+                          <textarea id="product-desc" rows="3" required class="w-full rounded p-2 form-input"></textarea>
+                      </div>
+                    <div>
+                          <label for="product-price" class="block font-semibold mb-1">Price (£)</label>
+                          <input type="number" step="0.01" id="product-price" required class="w-full rounded p-2 form-input">
+                      </div>
+                    <button type="submit" class="w-full p-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors">Add Product</button>
+                </form>
+                 <div id="stock-list-container" class="mt-6 space-y-4 max-h-60 overflow-y-auto"></div>
             </div>
 
         </div>
@@ -147,25 +157,26 @@
 
 <!-- Firebase SDK -->
 <script type="module">
-    // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
     import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+    import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-functions.js";
 
-    // Your web app's Firebase configuration
+    // IMPORTANT: PASTE THE FUNCTION URL YOU GET AFTER DEPLOYING HERE
+    const CLOUD_FUNCTION_URL = 'PASTE_YOUR_FUNCTION_URL_HERE'; 
+
     const firebaseConfig = {
-        apiKey: "AIzaSyAkUzc7R6vwigj9Tlw3qhsZbrFHwICjV04",
+        apiKey: "AIzaSyBsHHRU4_ubxDgDKq9aYBAFljiOPNWyUnU",
         authDomain: "welcome-to-the-piece-hall.firebaseapp.com",
         projectId: "welcome-to-the-piece-hall",
         storageBucket: "welcome-to-the-piece-hall.appspot.com",
         messagingSenderId: "983606755725",
         appId: "1:983606755725:web:434060645154f88c2a7dc4"
-    };
-
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
+    const functions = getFunctions(app, 'europe-west1'); // Match your function's region
 
     document.addEventListener('DOMContentLoaded', () => {
         const loginView = document.getElementById('login-view');
@@ -174,16 +185,12 @@
         const logoutButton = document.getElementById('logout-button');
         const loginError = document.getElementById('login-error');
 
-        // --- REAL Authentication using Firebase ---
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // User is signed in
                 loginView.classList.add('hidden');
                 dashboardView.classList.remove('hidden');
-                // Start listening for real-time data from Firestore
                 listenToCollections();
             } else {
-                // User is signed out
                 dashboardView.classList.add('hidden');
                 loginView.classList.remove('hidden');
             }
@@ -193,12 +200,27 @@
             e.preventDefault();
             const email = document.getElementById('admin-email').value;
             const password = document.getElementById('admin-password').value;
-            loginError.textContent = ''; // Clear previous errors
+            loginError.textContent = '';
 
             signInWithEmailAndPassword(auth, email, password)
                 .catch((error) => {
-                    console.error("Login Error:", error);
-                    loginError.textContent = "Invalid email or password.";
+                    console.error("Login Error:", error.code, error.message);
+                    switch (error.code) {
+                        case 'auth/invalid-credential':
+                        case 'auth/user-not-found':
+                        case 'auth/wrong-password':
+                            loginError.textContent = "Incorrect email or password.";
+                            break;
+                        case 'auth/invalid-email':
+                            loginError.textContent = "Please enter a valid email address.";
+                            break;
+                        case 'auth/network-request-failed':
+                             loginError.textContent = "Network error. Check your connection or API key.";
+                            break;
+                        default:
+                            loginError.textContent = "An unknown error occurred. Please try again.";
+                            break;
+                    }
                 });
         });
         
@@ -206,15 +228,15 @@
             signOut(auth).catch(error => console.error("Logout Error:", error));
         });
 
-        // --- REAL Content Management Forms with Firestore ---
         const newsForm = document.getElementById('news-form');
         const offersForm = document.getElementById('offers-form');
         const stockForm = document.getElementById('add-stock-form');
+        const eventsForm = document.getElementById('events-form');
         
-        // --- Firestore Collection References ---
         const newsCol = collection(db, 'news');
         const offersCol = collection(db, 'offers');
         const productsCol = collection(db, 'products');
+        const eventsCol = collection(db, 'events');
 
         newsForm.addEventListener('submit', async e => {
             e.preventDefault();
@@ -248,70 +270,76 @@
             stockForm.reset();
         });
 
-        // --- REAL-TIME Data Listening and Rendering ---
+        eventsForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            await addDoc(eventsCol, {
+                name: document.getElementById('event-title').value,
+                date: document.getElementById('event-date').value,
+                description: document.getElementById('event-description').value,
+                ticketsUrl: document.getElementById('event-tickets-url').value,
+                createdAt: serverTimestamp()
+            });
+            eventsForm.reset();
+        });
+
         function listenToCollections() {
             onSnapshot(newsCol, (snapshot) => {
                 const newsItems = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                renderNewsList(newsItems);
+                renderList(document.getElementById('news-list'), newsItems, item => `<h4 class="font-semibold">${item.name}</h4><p class="text-sm text-gray-300">${item.description}</p>`);
             });
             onSnapshot(offersCol, (snapshot) => {
                 const offerItems = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                renderOffersList(offerItems);
+                renderList(document.getElementById('offers-list'), offerItems, item => `<h4 class="font-semibold">${item.name}</h4><p class="text-sm text-gray-300">${item.description}</p><p class="text-xs text-gray-400 mt-1">Terms: ${item.terms}</p>`);
             });
             onSnapshot(productsCol, (snapshot) => {
                 const productItems = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                renderStockList(productItems);
+                renderList(document.getElementById('stock-list-container'), productItems, product => `<h4 class="font-semibold">${product.name}</h4><p class="text-sm text-gray-300">${product.description}</p><p class="text-right font-bold mt-1">£${parseFloat(product.price).toFixed(2)}</p>`);
+            });
+            onSnapshot(eventsCol, (snapshot) => {
+                const eventItems = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                 renderList(document.getElementById('events-list'), eventItems, item => `<h4 class="font-semibold">${item.name}</h4><p class="text-sm text-gray-300">${item.date}</p>`);
             });
         }
 
-        // --- Render Functions (Updated to accept data) ---
-        function renderNewsList(newsDatabase) {
-            const container = document.getElementById('news-list');
-            container.innerHTML = newsDatabase.length === 0 ? '<p class="text-gray-400">No news articles added yet.</p>' : '';
-            newsDatabase.sort((a, b) => b.createdAt - a.createdAt); // Show newest first
-            newsDatabase.forEach(item => {
+        function renderList(container, items, itemHtml) {
+            if (!container) return;
+            container.innerHTML = items.length === 0 ? '<p class="text-gray-400">No items added yet.</p>' : '';
+            items.sort((a, b) => b.createdAt?.toMillis() - a.createdAt?.toMillis());
+            items.forEach(item => {
                 const el = document.createElement('div');
                 el.className = 'bg-gray-700 p-3 rounded';
-                el.innerHTML = `<h4 class="font-semibold">${item.name}</h4><p class="text-sm text-gray-300">${item.description}</p>`;
+                el.innerHTML = itemHtml(item);
                 container.appendChild(el);
-            });
-        }
-
-         function renderOffersList(offersDatabase) {
-            const container = document.getElementById('offers-list');
-            container.innerHTML = offersDatabase.length === 0 ? '<p class="text-gray-400">No offers added yet.</p>' : '';
-            offersDatabase.sort((a, b) => b.createdAt - a.createdAt);
-            offersDatabase.forEach(item => {
-                const el = document.createElement('div');
-                el.className = 'bg-gray-700 p-3 rounded';
-                el.innerHTML = `<h4 class="font-semibold">${item.name}</h4><p class="text-sm text-gray-300">${item.description}</p><p class="text-xs text-gray-400 mt-1">Terms: ${item.terms}</p>`;
-                container.appendChild(el);
-            });
-        }
-
-        function renderStockList(traderDatabase) {
-            const container = document.getElementById('stock-list-container');
-            container.innerHTML = traderDatabase.length === 0 ? '<p class="text-gray-400">No products added yet.</p>' : '';
-            traderDatabase.sort((a, b) => b.createdAt - a.createdAt);
-            traderDatabase.forEach(product => {
-                const productEl = document.createElement('div');
-                productEl.className = 'bg-gray-700 p-3 rounded';
-                productEl.innerHTML = `
-                    <h4 class="font-semibold">${product.name}</h4>
-                    <p class="text-sm text-gray-300">${product.description}</p>
-                    <p class="text-right font-bold mt-1">£${parseFloat(product.price).toFixed(2)}</p>
-                `;
-                container.appendChild(productEl);
             });
         }
         
-        // Push notification form is still present but will need separate Firebase Cloud Messaging setup.
         const pushForm = document.getElementById('push-notification-form');
-        pushForm.addEventListener('submit', e => {
+        const pushStatus = document.getElementById('push-status');
+
+        pushForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-             const pushStatus = document.getElementById('push-status');
-             pushStatus.textContent = 'Push notification logic needs to be connected to a server function.';
-             setTimeout(() => pushStatus.textContent = '', 3000);
+            pushStatus.textContent = 'Sending...';
+            pushStatus.classList.remove('text-red-400');
+            pushStatus.classList.add('text-green-400');
+
+            const title = document.getElementById('push-title').value;
+            const body = document.getElementById('push-body').value;
+
+            try {
+                const sendPushNotification = httpsCallable(functions, 'sendPushNotification');
+                const result = await sendPushNotification({ title, body });
+                
+                console.log('Cloud function result:', result.data);
+                pushStatus.textContent = result.data.message || 'Notification sent successfully!';
+                pushForm.reset();
+
+            } catch (error) {
+                console.error('Error sending push notification:', error);
+                pushStatus.textContent = `Error: ${error.message}`;
+                pushStatus.classList.add('text-red-400');
+            } finally {
+                 setTimeout(() => pushStatus.textContent = '', 4000);
+            }
         });
 
     });
